@@ -14,17 +14,18 @@ app.post('/todos', (req, res) => {
         text: req.body.text
     });
 
-    todo.save().then((result) => {
-        res.send(result);
+    todo.save().then((doc) => {
+        res.send(doc);
     }, (e) => {
         res.status(400).send(e);
-    })
+    });
 });
 
 app.listen(3000, () => {
     console.log("Started on 3000");
 });
 
+module.exports = {app};
 
 
 // var newTodo = new Todo({
